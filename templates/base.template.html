@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" />
+
+    <title>Find a Date</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper orange lighten-1">
+            <a href="#" class="brand-logo center"><i class="material-icons">favorite_border</i>Find a Date</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.template.html">Home</a></li>
+                <li><a href="badges.html">Search Profile</a></li>
+                <li><a href="collapsible.html">Add Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav orange lighten-1" id="mobile-demo">
+        <li><a href="index.template.html">Home</a></li>
+        <li><a href="badges.html">Search Profile</a></li>
+        <li><a href="collapsible.html">Add Profile</a></li>
+    </ul>
+
+
+
+        {% block content %} {% endblock %}
+  
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.sidenav').sidenav();
+            $('.parallax').parallax();
+            $('.collapsible').collapsible();
+        });
+    </script>
+</body>
+
+</html>

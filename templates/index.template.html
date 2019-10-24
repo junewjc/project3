@@ -1,0 +1,50 @@
+{% extends 'base.template.html' %} {% block content %}
+
+<div id="index-banner" class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+      <h1 class="header orange-text">Find a Date</h1>
+      <div class="row">
+        <h5 class="header col s12 black-text">Anytime. Anywhere.</h5>
+      </div>
+      <div class="row">
+        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange lighten-1">Get Started</a>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+  <div class="parallax"><img src="{{ url_for('static', filename='images/heroimage.jpg' ) }}"></div>
+</div>
+<div class='container'>
+  <h3 class="header orange-text center">Browse All</h3>
+<div class="row">
+  {% for each_profile in profiles %}
+  <div class="col s12 m6 l4">
+    <div class="card medium sticky-action card-panel hoverable">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="images/office.jpg">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">{{each_profile['first_name']}} {{each_profile['last_name']}}<i class="material-icons right">more_vert</i></span>
+        <p>{{each_profile['occupation']}}, {{each_profile['age']}}</p>
+        <p>{{each_profile['country']}}</p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">{{each_profile['first_name']}} {{each_profile['last_name']}}<i class="material-icons right">close</i></span>
+        <p>{{each_profile.occupation}}, {{each_profile['age']}}</p>
+        <p>{{each_profile.country}}</p>
+        <p>{{each_profile.height}}cm</p>
+        <p>{{each_profile.race}}</p>
+        <p>{{each_profile.religion}}</p>
+        <p>{{each_profile.hobby}}</p>
+      </div>
+      <div class="card-action">
+        <a href="#">Edit Profile</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  </div>
+  {% endblock %}
