@@ -1,4 +1,5 @@
-{% extends 'base.template.html' %} {% block content %}
+{% extends 'base.template.html' %} 
+{% block content %}
 
 <div id="index-banner" class="parallax-container">
   <div class="section no-pad-bot">
@@ -9,7 +10,7 @@
         <h5 class="header col s12 black-text">Anytime. Anywhere.</h5>
       </div>
       <div class="row">
-        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange lighten-1">Get Started</a>
+        <a href="{{ url_for('add_profile') }}" id="download-button" class="btn-large waves-effect waves-light orange lighten-1">Get Started</a>
       </div>
       <br><br>
 
@@ -35,16 +36,15 @@
         <span class="card-title grey-text text-darken-4">{{each_profile['first_name']}} {{each_profile['last_name']}}<i class="material-icons right">close</i></span>
         <p>{{each_profile.occupation}}, {{each_profile['age']}}</p>
         <p>{{each_profile.country}}</p>
-        <p>{{each_profile.height}}cm</p>
-        <p>{{each_profile.race}}</p>
-        <p>{{each_profile.religion}}</p>
+        <p>{{each_profile.race}}, {{each_profile.religion}}</p>
         <p>{{each_profile.hobby}}</p>
+        <p>{{each_profile.summary}}</p>
       </div>
       <div class="card-action">
         <a href="#">Edit Profile</a>
       </div>
     </div>
+    </div>
     {% endfor %}
-  </div>
-  </div>
-  {% endblock %}
+</div>
+{% endblock %}
