@@ -41,7 +41,8 @@
         <p>{{each_profile.summary}}</p>
       </div>
       <div class="card-action">
-        <a href="#">Edit Profile</a>
+        <a href="edit_profile/{{each_profile['_id']}}">Edit Profile</a>
+        <a href="delete_profile/{{each_profile['_id']}}">Delete</a>
       </div>
     </div>
     </div>

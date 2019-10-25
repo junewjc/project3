@@ -19,19 +19,19 @@
 <body>
     <nav>
         <div class="nav-wrapper orange lighten-1">
-            <a href="#" class="brand-logo center"><i class="material-icons">favorite_border</i>Find a Date</a>
+            <a href="{{ url_for('index') }}" class="brand-logo center"><i class="material-icons">favorite_border</i>Find a Date</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="index.template.html">Home</a></li>
-                <li><a href="badges.html">Search Profile</a></li>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="">Search Profile</a></li>
                 <li><a href="{{ url_for('add_profile') }}">Add Profile</a></li>
             </ul>
         </div>
     </nav>
 
     <ul class="sidenav orange lighten-1" id="mobile-demo">
-        <li><a href="index.template.html">Home</a></li>
-        <li><a href="badges.html">Search Profile</a></li>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="">Search Profile</a></li>
         <li><a href="{{ url_for('add_profile') }}">Add Profile</a></li>
     </ul>
 
@@ -46,7 +46,8 @@
             $('.sidenav').sidenav();
             $('.parallax').parallax();
             $('select').formSelect();
-            $('textarea#summary').characterCounter();
+            $('#summary').val();
+  M.textareaAutoResize($('#summary'));
             $("select[required]").css({display: "block", height: 0, padding: 0, width: 0, position: 'absolute'});
         });
     </script>

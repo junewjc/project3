@@ -56,9 +56,61 @@ def insert_profile():
         "hobby" : hobby,
         "email" : email,
         "phone" : phone,
-        "summary" : summary,
+        "summary" : summary
     })
     flash("You have added a new profile.")
+    return redirect("/")
+    
+@app.route('/edit_profile/<profile_id>')
+def show_edit_profile(profile_id):
+    conn = get_connection()
+    profile = conn[DATABASE_NAME][COLLECTION_NAME].find_one({
+        '_id': ObjectId(profile_id)
+    })
+    return render_template('edit_profile.template.html', profile=profile)
+    
+@app.route("/edit_profile/<profile_id>", methods=['POST'])
+def process_edit_profile(profile_id):
+    first_name = request.form.get('first_name')
+    last_name = request.form.get('last_name')
+    gender = request.form.get('gender')
+    age = request.form.get('age')
+    occupation = request.form.get('occupation')
+    country = request.form.get('country')
+    religion = request.form.get('religion')
+    race = request.form.get('race')
+    hobby = request.form.get('hobby')
+    email = request.form['email']
+    phone = request.form.get('phone')
+    summary = request.form.get('summary')
+    
+    conn = get_connection()
+    conn[DATABASE_NAME][COLLECTION_NAME].update({
+        '_id':ObjectId(profile_id)
+    }, {
+        "first_name" : first_name,
+        "last_name" : last_name,
+        "gender" : gender,
+        "age" : age,
+        "occupation" : occupation,
+        "country" : country,
+        "religion" : religion,
+        "race" : race,
+        "hobby" : hobby,
+        "email" : email,
+        "phone" : phone,
+        "summary" : summary
+    })
+    flash("The profile has been updated.")
+    return redirect("/")
+    
+@app.route('/delete_profile/<profile_id>')
+def delete_profile(profile_id):
+    conn = get_connection()
+    profile = conn[DATABASE_NAME][COLLECTION_NAME].remove({
+        '_id': ObjectId(profile_id)
+        
+    })
     return redirect("/")
 
 if __name__ == '__main__':

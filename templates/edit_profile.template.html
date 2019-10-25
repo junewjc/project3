@@ -1,23 +1,25 @@
-{% extends 'base.template.html' %} {% block content %}
+{% extends 'base.template.html' %} 
+{% block content %}
 <div class='container'>
   <div class="center">
-    <br><h4>Add Profile</h4>
+    <br><h4>Edit Profile</h4>
   </div>
   <div class="row">
     <form class="col s12" method="POST">
       <div class="row">
         <div class="input-field col s12 m6">
-          <input id="first_name" type="text" class="validate" name="first_name" required="" aria-required="true">
+          <input id="first_name" type="text" class="validate" name="first_name" required="" aria-required="true" value="{{profile['first_name']}}">
           <label for="first_name">First Name *</label>
         </div>
         <div class="input-field col s12 m6">
-          <input id="last_name" type="text" class="validate" name="last_name" required="" aria-required="true">
+          <input id="last_name" type="text" class="validate" name="last_name" required="" aria-required="true" value="{{profile['last_name']}}">
           <label for="last_name">Last Name *</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
           <p>Gender: 
+          {% if (profile.gender == "Male") %}
             <label>
         <input name="gender" type="radio" class="with-gap" value="Male" checked />
         <span>Male</span>
@@ -26,23 +28,33 @@
         <input name="gender" type="radio" class="with-gap" value="Female"/>
         <span>Female</span>
         </label>
+        {% else %}
+        <label>
+        <input name="gender" type="radio" class="with-gap" value="Male" />
+        <span>Male</span>
+        </label>
+            <label>
+        <input name="gender" type="radio" class="with-gap" value="Female" checked/>
+        <span>Female</span>
+        </label>
+        {% endif %}
         </div>
         </p>
       </div>
       <div class="row">
         <div class="input-field col s12 m6">
-          <input id="age" type="number" class="validate" name="age" required="" aria-required="true">
+          <input id="age" type="number" class="validate" name="age" required="" aria-required="true" value="{{profile['age']}}">
           <label for="age">Age *</label>
         </div>
         <div class="input-field col s12 m6">
-          <input id="occupation" type="text" class="validate" name="occupation" required="" aria-required="true">
+          <input id="occupation" type="text" class="validate" name="occupation" required="" aria-required="true" value="{{profile['occupation']}}">
           <label for="occupation">Occupation *</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12 m6">
           <select name="race" required="required" class="validate">
-            <option value="" disabled selected>Choose your option</option>
+            <option value="{{profile['race']}}">{{profile['race']}}</option>
             <option value="Chinese">Chinese</option>
             <option value="Malay">Malay</option>
             <option value="Indian">Indian</option>
@@ -54,7 +66,7 @@
         </div>
         <div class="input-field col s12 m6">
           <select name="religion" required="required" class="validate">
-            <option value="" disabled selected>Choose your option</option>
+            <option value="{{profile['religion']}}">{{profile['religion']}}</option>
             <option value="Buddhist">Buddhist</option>
             <option value="Taoist">Taoist</option>
             <option value="Muslim">Muslim</option>
@@ -67,34 +79,34 @@
       </div>
       <div class="row">
         <div class="input-field col s12 m6">
-          <input id="country" type="text" class="validate" name="country" required="" aria-required="true">
+          <input id="country" type="text" class="validate" name="country" required="" aria-required="true" value="{{profile['country']}}">
           <label for="country">Country *</label>
         </div>
         <div class="input-field col s12 m6">
-          <input id="phone" type="number" class="validate" name="phone" required="" aria-required="true">
+          <input id="phone" type="number" class="validate" name="phone" required="" aria-required="true" value="{{profile['phone']}}">
           <label for="phone">Contact Number *</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="email" type="email" class="validate" name='email' required="" aria-required="true">
+          <input id="email" type="email" class="validate" name='email' required="" aria-required="true" value="{{profile['email']}}">
           <label for="email">Email *</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="hobby" type="text" name='hobby'>
+          <input id="hobby" type="text" name='hobby' value="{{profile['hobby']}}">
           <label for="hobby">Hobbies (optional)</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <textarea class="materialize-textarea" id="summary" type="text" name='summary'></textarea>
+          <textarea class="materialize-textarea" id="summary" type="text" name='summary'>{{profile['summary']}}</textarea>
           <label for="summary">Short Summary of Yourself (optional)</label>
         </div>
       </div>
       <div class="row center">
-        <button class="btn waves-effect waves-light orange" type="submit" name="action">Add Profile
+        <button class="btn waves-effect waves-light orange" type="submit" value="Update">Update Profile
                 <i class="material-icons right">playlist_add</i>
              </button>
       </div>
