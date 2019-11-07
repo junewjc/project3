@@ -1,105 +1,119 @@
-{% extends 'base.template.html' %} {% block content %}
-<div class='container'>
-  <div class="center">
-    <br><h4>Add Profile</h4>
+{% extends 'base.template.html' %} 
+
+{% block content %}
+  <div class='container'>
+    <div class="center">
+      <br>
+      <h4>Add Profile</h4>
+    </div>
+    <div class="row">
+      <form class="col s12" enctype="multipart/form-data" method="POST">
+        <div class="row">
+          <div class="input-field col s12 m6">
+            <input id="first_name" type="text" class="validate" name="first_name" required="" aria-required="true">
+            <label for="first_name">First Name *</label>
+          </div>
+          <div class="input-field col s12 m6">
+            <input id="last_name" type="text" class="validate" name="last_name" required="" aria-required="true">
+            <label for="last_name">Last Name *</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <p>Gender:
+              <label>
+          <input name="gender" type="radio" class="with-gap" value="Male" checked />
+          <span>Male</span>
+          </label>
+              <label>
+          <input name="gender" type="radio" class="with-gap" value="Female"/>
+          <span>Female</span>
+          </label>
+          </div>
+          </p>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m6">
+            <input id="age" type="number" class="validate" name="age" required="" aria-required="true">
+            <label for="age">Age *</label>
+          </div>
+          <div class="input-field col s12 m6">
+            <input id="occupation" type="text" class="validate" name="occupation" required="" aria-required="true">
+            <label for="occupation">Occupation *</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m6">
+            <select name="race" required="required" class="validate">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="Chinese">Chinese</option>
+              <option value="Malay">Malay</option>
+              <option value="Indian">Indian</option>
+              <option value="Caucasian">Caucasian</option>
+              <option value="Eurasian">Eurasian</option>
+              <option value="Others">Others</option>
+        </select>
+            <label>Race *</label>
+          </div>
+          <div class="input-field col s12 m6">
+            <select name="religion" required="required" class="validate">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="Buddhist">Buddhist</option>
+              <option value="Taoist">Taoist</option>
+              <option value="Muslim">Muslim</option>
+              <option value="Christian">Christian</option>
+              <option value="Hindi">Hindi</option>
+              <option value="Others">Others</option>
+              </select>
+            <label>Religion *</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m6">
+            <input id="country" type="text" class="validate" name="country" required="" aria-required="true">
+            <label for="country">Country *</label>
+          </div>
+          <div class="input-field col s12 m6">
+            <input id="phone" type="number" class="validate" name="phone" required="" aria-required="true">
+            <label for="phone">Contact Number *</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate" name='email' required="" aria-required="true">
+            <label for="email">Email *</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="hobby" type="text" name='hobby'>
+            <label for="hobby">Hobbies (optional)</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea class="materialize-textarea" id="textarea1" type="text" name='summary'></textarea>
+            <label for="textarea1">Short Summary of Yourself (optional)</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="file-field input-field">
+            <div class="btn orange">
+              <span>Browse</span>
+              <input type="file" class="validate" required="" name='image' />
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" placeholder="Upload profile photo *" />
+            </div>
+          </div>
+        </div>
+        <div class="row center">
+          <button class="btn waves-effect waves-light orange" type="submit" name="action">Add Profile
+                  <i class="material-icons right">person_add</i>
+               </button>
+        </div>
+      </form>
+      <br>
+    </div>
   </div>
-  <div class="row">
-    <form class="col s12" method="POST">
-      <div class="row">
-        <div class="input-field col s12 m6">
-          <input id="first_name" type="text" class="validate" name="first_name" required="" aria-required="true">
-          <label for="first_name">First Name *</label>
-        </div>
-        <div class="input-field col s12 m6">
-          <input id="last_name" type="text" class="validate" name="last_name" required="" aria-required="true">
-          <label for="last_name">Last Name *</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <p>Gender: 
-            <label>
-        <input name="gender" type="radio" class="with-gap" value="Male" checked />
-        <span>Male</span>
-        </label>
-            <label>
-        <input name="gender" type="radio" class="with-gap" value="Female"/>
-        <span>Female</span>
-        </label>
-        </div>
-        </p>
-      </div>
-      <div class="row">
-        <div class="input-field col s12 m6">
-          <input id="age" type="number" class="validate" name="age" required="" aria-required="true">
-          <label for="age">Age *</label>
-        </div>
-        <div class="input-field col s12 m6">
-          <input id="occupation" type="text" class="validate" name="occupation" required="" aria-required="true">
-          <label for="occupation">Occupation *</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12 m6">
-          <select name="race" required="required" class="validate">
-            <option value="" disabled selected>Choose your option</option>
-            <option value="Chinese">Chinese</option>
-            <option value="Malay">Malay</option>
-            <option value="Indian">Indian</option>
-            <option value="Caucasian">Caucasian</option>
-            <option value="Eurasian">Eurasian</option>
-            <option value="Others">Others</option>
-      </select>
-          <label>Race *</label>
-        </div>
-        <div class="input-field col s12 m6">
-          <select name="religion" required="required" class="validate">
-            <option value="" disabled selected>Choose your option</option>
-            <option value="Buddhist">Buddhist</option>
-            <option value="Taoist">Taoist</option>
-            <option value="Muslim">Muslim</option>
-            <option value="Christian">Christian</option>
-            <option value="Hindi">Hindi</option>
-            <option value="Others">Others</option>
-            </select>
-          <label>Religion *</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12 m6">
-          <input id="country" type="text" class="validate" name="country" required="" aria-required="true">
-          <label for="country">Country *</label>
-        </div>
-        <div class="input-field col s12 m6">
-          <input id="phone" type="number" class="validate" name="phone" required="" aria-required="true">
-          <label for="phone">Contact Number *</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate" name='email' required="" aria-required="true">
-          <label for="email">Email *</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="hobby" type="text" name='hobby'>
-          <label for="hobby">Hobbies (optional)</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <textarea class="materialize-textarea" id="summary" type="text" name='summary'></textarea>
-          <label for="summary">Short Summary of Yourself (optional)</label>
-        </div>
-      </div>
-      <div class="row center">
-        <button class="btn waves-effect waves-light orange" type="submit" name="action">Add Profile
-                <i class="material-icons right">playlist_add</i>
-             </button>
-      </div>
-    </form>
-    <br>
-  </div>
-</div>
 {% endblock %}

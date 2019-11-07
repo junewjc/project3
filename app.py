@@ -3,24 +3,29 @@ import os
 from flask_pymongo import PyMongo, pymongo
 import re
 from bson.objectid import ObjectId 
+from flask_uploads import UploadSet, IMAGES, configure_uploads
 
 
+app = Flask(__name__)
 
 MONGO_URI = os.getenv('MONGO_URI')
 DATABASE_NAME = "projectDB"
 COLLECTION_NAME = "profile"
+conn = pymongo.MongoClient(MONGO_URI)
 
-def get_connection():
-    conn = pymongo.MongoClient(MONGO_URI)
-    return conn
-    
-
-app = Flask(__name__)
+TOP_LEVEL_DIR = os.path.abspath(os.curdir) 
+upload_dir = '/static/uploads/img/' 
+app.config["UPLOADS_DEFAULT_DEST"] = TOP_LEVEL_DIR + upload_dir 
+app.config["UPLOADED_IMAGES_DEST"] = TOP_LEVEL_DIR + upload_dir 
+app.config["UPLOADED_IMAGES_URL"] = upload_dir 
 app.secret_key = "secret"
+
+images_upload_set = UploadSet('images', IMAGES)
+configure_uploads(app, images_upload_set)
+
 
 @app.route('/')
 def index():
-    conn = get_connection()
     profiles = conn[DATABASE_NAME][COLLECTION_NAME].find()
     return render_template('index.template.html', profiles=profiles)
     
@@ -42,8 +47,10 @@ def insert_profile():
     email = request.form['email']
     phone = request.form.get('phone')
     summary = request.form.get('summary')
+    image = request.files.get('image') 
+    filename = images_upload_set.save(image) 
     
-    conn = get_connection()
+    
     conn[DATABASE_NAME][COLLECTION_NAME].insert({
         "first_name" : first_name,
         "last_name" : last_name,
@@ -56,14 +63,14 @@ def insert_profile():
         "hobby" : hobby,
         "email" : email,
         "phone" : phone,
-        "summary" : summary
+        "summary" : summary, 
+        "image_url" : images_upload_set.url(filename)
     })
     flash("You have added a new profile.")
     return redirect("/")
     
 @app.route('/edit_profile/<profile_id>')
 def show_edit_profile(profile_id):
-    conn = get_connection()
     profile = conn[DATABASE_NAME][COLLECTION_NAME].find_one({
         '_id': ObjectId(profile_id)
     })
@@ -83,8 +90,9 @@ def process_edit_profile(profile_id):
     email = request.form['email']
     phone = request.form.get('phone')
     summary = request.form.get('summary')
+    image = request.files.get('image') 
+    filename = images_upload_set.save(image) 
     
-    conn = get_connection()
     conn[DATABASE_NAME][COLLECTION_NAME].update({
         '_id':ObjectId(profile_id)
     }, {
@@ -99,18 +107,19 @@ def process_edit_profile(profile_id):
         "hobby" : hobby,
         "email" : email,
         "phone" : phone,
-        "summary" : summary
+        "summary" : summary, 
+        "image_url" : images_upload_set.url(filename)
     })
     flash("The profile has been updated.")
     return redirect("/")
     
 @app.route('/delete_profile/<profile_id>')
 def delete_profile(profile_id):
-    conn = get_connection()
     profile = conn[DATABASE_NAME][COLLECTION_NAME].remove({
         '_id': ObjectId(profile_id)
         
     })
+    flash("The profile has been deleted.")
     return redirect("/")
 
 if __name__ == '__main__':

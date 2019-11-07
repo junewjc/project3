@@ -11,24 +11,27 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/main14.css' ) }}" />
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/main.css' ) }}" />
 
     <title>Find a Date</title>
 </head>
 
 <body>
-    <nav>
-        <div class="nav-wrapper orange lighten-1">
-            <a href="{{ url_for('index') }}" class="brand-logo center"><i class="material-icons">favorite_border</i>Find a Date</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="">Search Profile</a></li>
-                <li><a href="{{ url_for('add_profile') }}">Add Profile</a></li>
-            </ul>
-        </div>
-    </nav>
-
+    <!-- Navbar -->
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper orange lighten-1">
+                <a href="{{ url_for('index') }}" class="brand-logo center"><i class="material-icons">favorite_border</i>Find a Date</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="">Search Profile</a></li>
+                    <li><a href="{{ url_for('add_profile') }}">Add Profile</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar for mobile view -->
     <ul class="sidenav orange lighten-1" id="mobile-demo">
         <li><a href="{{ url_for('index') }}">Home</a></li>
         <li><a href="">Search Profile</a></li>
@@ -37,8 +40,8 @@
 
 
 
-        {% block content %} {% endblock %}
-  
+    {% block content %} {% endblock %}
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript">
@@ -46,9 +49,9 @@
             $('.sidenav').sidenav();
             $('.parallax').parallax();
             $('select').formSelect();
-            $('#summary').val();
-  M.textareaAutoResize($('#summary'));
-            $("select[required]").css({display: "block", height: 0, padding: 0, width: 0, position: 'absolute'});
+            $('#textarea1').val();
+            M.textareaAutoResize($('#textarea1'));
+            $("select[required]").css({ display: "block", height: 0, padding: 0, width: 0, position: 'absolute' });
         });
     </script>
 </body>
