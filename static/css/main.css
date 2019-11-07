@@ -139,7 +139,7 @@ input:focus {
     width: 90%; 
   }
   #banner-text {
-    width: 70%
+    width: 70% !important
   }
 }
 
