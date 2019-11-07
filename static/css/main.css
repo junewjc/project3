@@ -40,9 +40,32 @@ h5 {
   margin: 10px;
 }
 
+.card-panel {
+  padding:0 !important;
+}
+
+.card .card-content {
+  padding: 10px 24px;
+}
+
+.card .card-action {
+  padding: 10px 24px;
+}
+
 .row .col {
   padding: 10px;
 }
+
+.dropdown-content li > a, .dropdown-content li > span {
+    color: orange !important;
+}
+
+.search-button {
+  width:120px;
+  margin-right: 10px;
+}
+
+
 
 .alert-message p{
   color:rgba(0,0,0,0.87);
@@ -112,5 +135,8 @@ input:focus {
 @media only screen and (min-width: 601px) {
   .container {
     width: 90%; 
+  }
+  #banner-text {
+    width: 80%
   }
 }

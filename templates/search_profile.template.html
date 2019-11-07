@@ -1,0 +1,74 @@
+{% extends 'base.template.html' %} 
+
+{% block content %}
+  <div class='container'>
+    <h3 class="header orange-text center">Search By</h3>
+    
+     <!--Dropdown for Gender -->
+    <div class='row center'>
+      <a class='dropdown-trigger btn orange search-button' href='#' data-target='dropdown1'>{{gender}}</a>
+        <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="?gender=Gender">Gender</a></li>
+            <li><a href="?gender=Male">Male</a></li>
+            <li><a href="?gender=Female">Female</a></li>
+        </ul>
+      
+      
+     <!--Dropdown for Race -->
+      <a class='dropdown-trigger btn orange search-button' href='#' data-target='dropdown2'>{{race}}</a>
+        <ul id='dropdown2' class='dropdown-content'>
+            <li><a href="?race=Race">Race</a></li>
+            <li><a href="?race=Chinese">Chinese</a></li>
+            <li><a href="?race=Malay">Malay</a></li>
+            <li><a href="?race=Indian">Indian</a></li>
+            <li><a href="?race=Caucasian">Caucasian</a></li>
+            <li><a href="?race=Eurasian">Eurasian</a></li>
+            <li><a href="?race=Others">Others</a></li>
+        </ul>
+      </div>
+      
+      <!--Dropdown for Religion -->
+       <a class='dropdown-trigger btn orange search-button' href='#' data-target='dropdown3'>{{religion}}</a>
+        <ul id='dropdown3' class='dropdown-content'>
+            <li><a href="?religion=Religion">Religion</a></li>
+            <li><a href="?religion=Buddhist">Chinese</a></li>
+            <li><a href="?religion=Taoist">Taoist</a></li>
+            <li><a href="?religion=Muslim">Muslim</a></li>
+            <li><a href="?religion=Christian">Christian</a></li>
+            <li><a href="?religion=Hindi">Hindi</a></li>
+            <li><a href="?religion=Others">Others</a></li>
+        </ul>
+      </div>
+
+
+    <!--List of profiles filtered by the search query-->
+    <div class="row">
+      {% for each_profile in profiles %}
+      <div class="col s12 m6 l4">
+        <div class="card medium sticky-action card-panel hoverable">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{{each_profile.image_url}}">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{each_profile.first_name}} {{each_profile.last_name}}<i class="material-icons right">more_vert</i></span>
+            <p>{{each_profile.occupation}}, {{each_profile.age}}</p>
+            <p>{{each_profile.country}}</p>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">{{each_profile.first_name}} {{each_profile.last_name}}<i class="material-icons right">close</i></span>
+            <p>{{each_profile.occupation}}, {{each_profile.age}}</p>
+            <p>{{each_profile.country}}</p>
+            <p>{{each_profile.race}}, {{each_profile.religion}}</p>
+            <p>{{each_profile.hobby}}</p>
+            <p>{{each_profile.summary}}</p>
+          </div>
+          <div class="card-action">
+            <a href="edit_profile/{{each_profile['_id']}}">
+              <i class="material-icons right">update</i>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+{% endblock %}

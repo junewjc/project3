@@ -7,8 +7,11 @@
       <h4>Add Profile</h4>
     </div>
     <div class="row">
+      <!--Form for adding a profile-->
       <form class="col s12" enctype="multipart/form-data" method="POST">
+        
         <div class="row">
+          <!--Input for first name and last name-->
           <div class="input-field col s12 m6">
             <input id="first_name" type="text" class="validate" name="first_name" required="" aria-required="true">
             <label for="first_name">First Name *</label>
@@ -18,7 +21,9 @@
             <label for="last_name">Last Name *</label>
           </div>
         </div>
+        
         <div class="row">
+          <!--Input for gender-->
           <div class="input-field col s12">
             <p>Gender:
               <label>
@@ -32,18 +37,23 @@
           </div>
           </p>
         </div>
+        
         <div class="row">
+          <!--Input for age-->
           <div class="input-field col s12 m6">
             <input id="age" type="number" class="validate" name="age" required="" aria-required="true">
             <label for="age">Age *</label>
           </div>
           <div class="input-field col s12 m6">
+            <!--Input for occupation-->
             <input id="occupation" type="text" class="validate" name="occupation" required="" aria-required="true">
             <label for="occupation">Occupation *</label>
           </div>
         </div>
+        
         <div class="row">
           <div class="input-field col s12 m6">
+            <!--Input for race-->
             <select name="race" required="required" class="validate">
               <option value="" disabled selected>Choose your option</option>
               <option value="Chinese">Chinese</option>
@@ -56,6 +66,7 @@
             <label>Race *</label>
           </div>
           <div class="input-field col s12 m6">
+            <!--Input for religion-->
             <select name="religion" required="required" class="validate">
               <option value="" disabled selected>Choose your option</option>
               <option value="Buddhist">Buddhist</option>
@@ -68,35 +79,46 @@
             <label>Religion *</label>
           </div>
         </div>
+        
         <div class="row">
+          <!--Input for country-->
           <div class="input-field col s12 m6">
             <input id="country" type="text" class="validate" name="country" required="" aria-required="true">
             <label for="country">Country *</label>
           </div>
           <div class="input-field col s12 m6">
+            <!--Input for phone number-->
             <input id="phone" type="number" class="validate" name="phone" required="" aria-required="true">
             <label for="phone">Contact Number *</label>
           </div>
         </div>
+        
         <div class="row">
+          <!--Input for email-->
           <div class="input-field col s12">
             <input id="email" type="email" class="validate" name='email' required="" aria-required="true">
             <label for="email">Email *</label>
           </div>
         </div>
+        
         <div class="row">
+          <!--Input for hobby-->
           <div class="input-field col s12">
             <input id="hobby" type="text" name='hobby'>
             <label for="hobby">Hobbies (optional)</label>
           </div>
         </div>
+        
         <div class="row">
+          <!--Input for short summary-->
           <div class="input-field col s12">
-            <textarea class="materialize-textarea" id="textarea1" type="text" name='summary'></textarea>
+            <textarea class="materialize-textarea" id="summary" type="text" name='summary' required maxlength="1000"></textarea>
             <label for="textarea1">Short Summary of Yourself (optional)</label>
           </div>
         </div>
+        
         <div class="row">
+          <!--Upload image-->
           <div class="file-field input-field">
             <div class="btn orange">
               <span>Browse</span>
@@ -107,6 +129,7 @@
             </div>
           </div>
         </div>
+        
         <div class="row center">
           <button class="btn waves-effect waves-light orange" type="submit" name="action">Add Profile
                   <i class="material-icons right">person_add</i>

@@ -24,16 +24,44 @@ images_upload_set = UploadSet('images', IMAGES)
 configure_uploads(app, images_upload_set)
 
 
-@app.route('/')
+@app.route('/') #Homepage
 def index():
     profiles = conn[DATABASE_NAME][COLLECTION_NAME].find()
     return render_template('index.template.html', profiles=profiles)
     
-@app.route('/add_profile')
+@app.route('/search_profile') #Search profile page
+def search_profile():
+    gender = request.args.get('gender')
+    race = request.args.get('race')
+    religion = request.args.get('religion')
+    critera= {} 
+    
+    if gender and gender != 'Gender':
+        critera['gender'] = gender
+    else:
+        gender = 'Gender'
+        
+    if race and race != 'Race':
+        critera['race'] = race
+    else:
+        race = 'Race'
+        
+    if religion and religion != 'Religion':
+        critera['religion'] = religion
+    else:
+        religion = 'religion'
+        
+        
+    profiles = conn[DATABASE_NAME][COLLECTION_NAME].find(critera)
+    print(profiles)
+    return render_template("search_profile.template.html", 
+                           profiles=profiles, gender=gender, race=race, religion=religion)
+    
+@app.route('/add_profile') #Add profile page
 def add_profile():
     return render_template('add_profile.template.html')
     
-@app.route('/add_profile', methods=['POST'])
+@app.route('/add_profile', methods=['POST']) #To add the new profile to mongodb database
 def insert_profile():
     first_name = request.form.get('first_name')
     last_name = request.form.get('last_name')
@@ -69,14 +97,14 @@ def insert_profile():
     flash("You have added a new profile.")
     return redirect("/")
     
-@app.route('/edit_profile/<profile_id>')
+@app.route('/edit_profile/<profile_id>') #Edit profile page
 def show_edit_profile(profile_id):
     profile = conn[DATABASE_NAME][COLLECTION_NAME].find_one({
         '_id': ObjectId(profile_id)
     })
     return render_template('edit_profile.template.html', profile=profile)
     
-@app.route("/edit_profile/<profile_id>", methods=['POST'])
+@app.route("/edit_profile/<profile_id>", methods=['POST']) #To update the profile details in mongodb database
 def process_edit_profile(profile_id):
     first_name = request.form.get('first_name')
     last_name = request.form.get('last_name')
@@ -113,7 +141,7 @@ def process_edit_profile(profile_id):
     flash("The profile has been updated.")
     return redirect("/")
     
-@app.route('/delete_profile/<profile_id>')
+@app.route('/delete_profile/<profile_id>') #To delete profile
 def delete_profile(profile_id):
     profile = conn[DATABASE_NAME][COLLECTION_NAME].remove({
         '_id': ObjectId(profile_id)

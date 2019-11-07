@@ -10,9 +10,10 @@
       {% endfor %}
     {% endif %}
   {% endwith %}
+  <!--Hero Image-->
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
-      <div class="container">
+      <div class="container" id="banner-text">
         <br><br>
         <h1 class="header orange-text">Find a Date</h1>
         <div class="row">
@@ -22,11 +23,12 @@
           <a href="{{ url_for('add_profile') }}" id="download-button" class="btn-large waves-effect waves-light orange lighten-1">Get Started</a>
         </div>
         <br><br>
-  
       </div>
     </div>
     <div class="parallax"><img src="{{ url_for('static', filename='images/heroimage.jpg' ) }}"></div>
   </div>
+  
+  <!--List of profiles-->
   <div class='container'>
     <h3 class="header orange-text center">Browse All</h3>
     <div class="row">
@@ -50,7 +52,9 @@
             <p>{{each_profile.summary}}</p>
           </div>
           <div class="card-action">
-            <a href="edit_profile/{{each_profile['_id']}}">Edit Profile</a>
+            <a href="edit_profile/{{each_profile['_id']}}">
+              <i class="material-icons">edit</i>
+            </a>
           </div>
         </div>
       </div>
