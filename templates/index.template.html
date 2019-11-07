@@ -55,9 +55,16 @@
             <a href="edit_profile/{{each_profile['_id']}}">
               <i class="material-icons">edit</i>
             </a>
+            <a href="https://www.whatsapp.com/" target="_blank">
+              <i class="material-icons">chat</i>
+            </a>
+            <a href="mailto:{{each_profile.email}}?Subject=Hi%20there" target="_top">
+              <i class="material-icons">email</i>
+            </a>
           </div>
         </div>
       </div>
       {% endfor %}
     </div>
+  </div>
 {% endblock %}

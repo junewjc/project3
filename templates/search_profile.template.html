@@ -25,13 +25,12 @@
             <li><a href="?race=Eurasian">Eurasian</a></li>
             <li><a href="?race=Others">Others</a></li>
         </ul>
-      </div>
       
       <!--Dropdown for Religion -->
        <a class='dropdown-trigger btn orange search-button' href='#' data-target='dropdown3'>{{religion}}</a>
         <ul id='dropdown3' class='dropdown-content'>
             <li><a href="?religion=Religion">Religion</a></li>
-            <li><a href="?religion=Buddhist">Chinese</a></li>
+            <li><a href="?religion=Buddhist">Buddhist</a></li>
             <li><a href="?religion=Taoist">Taoist</a></li>
             <li><a href="?religion=Muslim">Muslim</a></li>
             <li><a href="?religion=Christian">Christian</a></li>
@@ -66,9 +65,16 @@
             <a href="edit_profile/{{each_profile['_id']}}">
               <i class="material-icons right">update</i>
             </a>
+            <a href="https://www.whatsapp.com/" target="_blank">
+              <i class="material-icons">chat</i>
+            </a>
+            <a href="mailto:{{each_profile.email}}?Subject=Hi%20there" target="_top">
+              <i class="material-icons">email</i>
+            </a>
           </div>
         </div>
       </div>
       {% endfor %}
+    </div>
     </div>
 {% endblock %}

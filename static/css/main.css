@@ -130,6 +130,8 @@ input:focus {
 
 .page-footer {
   margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px
 }
 
 @media only screen and (min-width: 601px) {
@@ -140,3 +142,14 @@ input:focus {
     width: 80%
   }
 }
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+   

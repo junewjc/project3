@@ -37,9 +37,18 @@
         <li><a href="{{ url_for('search_profile') }}">Search Profile</a></li>
         <li><a href="{{ url_for('add_profile') }}">Add Profile</a></li>
     </ul>
-
+    
+    <main>
     {% block content %} {% endblock %}
-
+    </main>
+    <!--Footer-->
+    <footer class="page-footer orange">
+            <div class="container">
+            © 2019 - Website designed and built by June Wong
+            </div>
+        </footer>
+    
+    
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript">
