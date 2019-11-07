@@ -132,13 +132,13 @@
               <input type="file" class="validate" required="" name='image' value="image" />
             </div>
             <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" value="Upload profile photo *" />
+              <input class="file-path validate" type="text" placeholder="Upload profile photo *" />
             </div>
           </div>
         </div>
         
         <div class="row center">
-          <button class="btn waves-effect waves-light orange" type="submit" value="Update">Update Profile
+          <button class="btn waves-effect waves-light orange" type="submit" value="Update" id="update">Update Profile
             <i class="material-icons right">update</i>
           </button>
           <a class="waves-effect waves-light btn orange" href="{{url_for('delete_profile', profile_id=profile._id)}}">Delete
