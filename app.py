@@ -26,7 +26,7 @@ configure_uploads(app, images_upload_set)
 
 @app.route('/') #Homepage
 def index():
-    profiles = conn[DATABASE_NAME][COLLECTION_NAME].find()
+    profiles = conn[DATABASE_NAME][COLLECTION_NAME].find().sort([("_id", -1)])
     return render_template('index.template.html', profiles=profiles)
     
 @app.route('/search_profile') #Search profile page
