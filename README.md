@@ -62,38 +62,38 @@ As a user, I want to be able to:
 
 * Navigation Bar/ Dropdown Menu
 
- * The navigation bar was created using [Materialize](https://materializecss.com/navbar.html). 
- * The navigation bar is mobile responsive as it toggles a dropdown menu when the website is in mobile view. Users do not have to use back-button or scroll up to the top to use the navigation bar.
+  * The navigation bar was created using [Materialize](https://materializecss.com/navbar.html). 
+  * The navigation bar is mobile responsive as it toggles a dropdown menu when the website is in mobile view. Users do not have to use back-button or scroll up to the top to use the navigation bar.
 
 
 * Filter Profiles function
 
- * Users are able to filter profiles based on different categories under the Search Profiles page.
+  * Users are able to filter profiles based on different categories under the Search Profiles page.
 
 
 * Responsive card format
 
- * The profiles are displayed in card format using [Materialize](https://materializecss.com/cards.html). 
- *This format helps to keep the website minimalistic as it only displays the profiles’ key information. The rest of the profiles’ information will only be revealed when the card is clicked. 
+  * The profiles are displayed in card format using [Materialize](https://materializecss.com/cards.html). 
+  *This format helps to keep the website minimalistic as it only displays the profiles’ key information. The rest of the profiles’ information will only be revealed when the card is clicked. 
 
 
 ### Features Left to Implement
 
 * User Registration and Login
 
- * Currently, anyone can edit and delete profiles that do not belong to them. User Registration and Login will allow user to only edit and delete their own profile.
+  * Currently, anyone can edit and delete profiles that do not belong to them. User Registration and Login will allow user to only edit and delete their own profile.
 
 * Better Search and Filter function
 
- * Currently, the filter function only caters for a few categories. A more robust search and filter function could be implemented in the future. 
+  * Currently, the filter function only caters for a few categories. A more robust search and filter function could be implemented in the future. 
 
 * Like Function 
 
- * A like function could be added to allow users to like the profiles they are interested in. 
+  * A like function could be added to allow users to like the profiles they are interested in. 
 
 * Chat Room
 
- * A chat room could be added to allow users to communicate with other users on the website.
+  * A chat room could be added to allow users to communicate with other users on the website.
 
 
 ## Technologies Used
