@@ -3,7 +3,7 @@
 {% block content %}
   <div class='container'>
     <h3 class="header orange-text center">Search By</h3>
-    
+    <!--Filter profiles by different categories below-->
      <!--Dropdown for Gender -->
     <div class='row center'>
       <a class='dropdown-trigger btn orange search-button' href='#' data-target='dropdown1'>{{gender}}</a>
@@ -40,7 +40,7 @@
       </div>
 
 
-    <!--List of profiles filtered by the search query-->
+    <!--List of profiles filtered by the category above-->
     <div class="row">
       {% for each_profile in profiles %}
       <div class="col s12 m6 l4">
